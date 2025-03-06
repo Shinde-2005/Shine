@@ -1,0 +1,14 @@
+library(rpart)
+library(rpart.plot) 
+# Load the iris dataset 
+data(iris) 
+# Train the decision tree model 
+model <- rpart (Species ~ ., data = iris) 
+# Make predictions 
+pred <- predict(model, iris, type = "class") 
+# Calculate accuracy 
+accuracy <- sum(pred == iris$Species) / nrow(iris) 
+# Print accuracy 
+print(paste("Accuracy:", round(accuracy * 100, 2), "%")) 
+# Plot the decision tree 
+rpart.plot(model) 
