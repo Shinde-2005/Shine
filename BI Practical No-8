@@ -1,0 +1,10 @@
+# Load the iris dataset 
+data(iris) 
+# Perform k-means clustering (with 3 clusters)
+kmeans_model <- kmeans(iris[, -5], centers = 3) 
+# Add cluster assignments to the dataset 
+iris$Cluster <- as.factor(kmeans_model$cluster) 
+# Print the cluster centers 
+print(kmeans_model$centers) 
+# Plot the clusters 
+plot(iris$Sepal.Length, iris$Sepal.Width, col = iris$Cluster, pch = 19)
